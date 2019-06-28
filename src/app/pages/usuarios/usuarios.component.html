@@ -1,0 +1,30 @@
+<div *ngFor="let usuario of usuarios" class="card mb-3" style="max-width: 540px;">
+    <div class="row no-gutters">
+        <div class="col-md-4">
+            <img [src]="usuario.avatar" class="card-img" alt="avatar">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+
+                <h5 class="card-title">
+                    <a class="nav-link" href="#">
+                        {{ usuario.first_name }} {{ usuario.last_name}}
+                    </a>
+                </h5>
+
+
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">{{ usuario.email }}</li>
+                    <button [routerLink]="[ '/usuario/' + usuario.id ]" class="btn btn-info">Ver</button>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<ul class="pagination">
+    <li class="page-item"><button class="page-link" (click)="anteriorPagina()">Anterior</button></li>
+    <li class="page-item"><button class="page-link" (click)="siguientePagina()">Siguiente</button></li>
+</ul>
